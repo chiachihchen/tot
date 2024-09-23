@@ -5,6 +5,7 @@ import argparse
 from tot.tasks import get_task
 from tot.methods.bfs import solve, naive_solve
 from tot.models import gpt_usage
+import time
 
 def run(args):
     task = get_task(args.task)
@@ -66,4 +67,6 @@ def parse_args():
 if __name__ == '__main__':
     args = parse_args()
     print(args)
+    start = time.time()
     run(args)
+    print(f'Time lapse {time.time() - start}...')

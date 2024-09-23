@@ -21,10 +21,7 @@ Official implementation for paper [Tree of Thoughts: Deliberate Problem Solving 
 Also check [its tweet thread](https://twitter.com/ShunyuYao12/status/1659357547474681857) in 1min.
 
 
-
-
-
-## Setup
+## Setup (only support OpenAI GPT4)
 1. Set up OpenAI API key and store in environment variable ``OPENAI_API_KEY`` (see [here](https://help.openai.com/en/articles/5112595-best-practices-for-api-key-safety)). 
 
 2. Install `tot` package in two ways:
@@ -40,6 +37,20 @@ pip install -r requirements.txt
 pip install -e .  # install `tot` package
 ```
 
+## Setup demo repo with the latest openai library that support [build.nvidia.com](https://build.nvidia.com/) models
+- Update your NVIDIA API KEY
+```bash
+echo "export NV_API_KEY='your_api_key'" >> ~/.zshrc
+source ~/.zshrc
+```
+- Clone and install dependencies
+```bash
+git clone https://github.com/chiachihchen/tot.git
+cd tot
+pip install --upgrade pip
+pip install -r requirements.txt
+pip install -e .  # install `tot` package
+```
 
 ## Quick Start
 The following minimal script will attempt to solve the game of 24 with `4 5 6 10` (might be a bit slow as it's using GPT-4):
@@ -76,7 +87,6 @@ The very simple ``run.py`` implements the ToT + BFS algorithm, as well as the na
 - ``--n_generate_sample``: number of times to prompt for thought generation
 - ``--n_evaluate_sample``: number of times to prompt for state evaluation
 - ``--n_select_sample``: number of states to keep from each step (i.e. ``b`` in the paper's ToT + BFS algorithm)
-
 
 
 ## Paper Trajectories
